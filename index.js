@@ -1,4 +1,4 @@
-const { Transform } = require('readable-stream')
+const { Transform } = require('streamx')
 
 class Block extends Transform {
   constructor (size, opts = {}) {
@@ -20,7 +20,7 @@ class Block extends Transform {
     this._bufferedBytes = 0
   }
 
-  _transform (buf, enc, next) {
+  _transform (buf, cb) {
     this._bufferedBytes += buf.length
     this._buffered.push(buf)
 
@@ -49,7 +49,7 @@ class Block extends Transform {
       // Then concat just those buffers, leaving the rest untouched in _buffered
       this.push(Buffer.concat(blockBufs, this.size))
     }
-    next()
+    cb()
   }
 
   _flush () {

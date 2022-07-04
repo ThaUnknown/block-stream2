@@ -4,7 +4,7 @@ const BlockStream = require('../')
 test('basic test', t => {
   const b = new BlockStream(16)
   const fs = require('fs')
-  const fstr = fs.createReadStream(__filename, { encoding: 'utf8' })
+  const fstr = fs.createReadStream(__filename)
   fstr.pipe(b)
   b.resume()
 

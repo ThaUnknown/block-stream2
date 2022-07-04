@@ -4,7 +4,7 @@
   "description": "transform input into equally-sized blocks of output",
   "main": "index.js",
   "dependencies": {
-    "readable-stream": "^3.4.0"
+    "streamx": "^2.12.4"
   },
   "devDependencies": {
     "standard": "^16.0.3",
